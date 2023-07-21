@@ -1,28 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container"> 
-    <h3>Question 1: What is the first step in a skincare routine?</h3>
-    <div class="options">
-      <div class="option" onclick="checkAnswer('Cleansing')">Cleansing</div>
-      <div class="option" onclick="checkAnswer('Moisturizing')">Moisturizing</div>
-      <div class="option" onclick="checkAnswer('Applying sunscreen')">Applying sunscreen</div>
+  <div class="quiz-container">
+    <h1>What is the first step of a skincare routine?</h1>
+    <div>
+      <button onclick="checkAnswer('Cleansing')">Cleansing</button>
+      <button onclick="checkAnswer('Moisturizing')">Moisturizing</button>
+      <button onclick="checkAnswer('Toning')">Toning</button>
     </div>
   </div>
-  <script>
-    function checkAnswer(selectedOption) {
-      if (selectedOption === 'Cleansing') {
-        localStorage.setItem('score', '1');
-      } else {
-        localStorage.setItem('score', '0');
-      }
-      window.location.href = "question2.html";
-    }
-  </script>
+  <script src="quiz.js"></script>
 </body>
 </html>

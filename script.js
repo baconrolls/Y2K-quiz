@@ -5,43 +5,52 @@ const quizData = [
         answer: "Year 2000"
     },
     {
-        question: "When did the Y2K bug occur?",
-        options: ["December 31, 1999", "January 1, 2000", "November 11, 1999"],
-        answer: "January 1, 2000"
+        question: "What year did the Y2K bug occur?",
+        options: ["2001", "2000", "1999"],
+        answer: "2000"
     },
     {
-        question: "What was the main concern about the Y2K bug?",
-        options: ["Nuclear War", "Internet Shutdown", "Computer Malfunctions"],
-        answer: "Computer Malfunctions"
+        question: "What was the main concern of the Y2K bug?",
+        options: ["Global Warming", "Economic Recession", "Computer Failure"],
+        answer: "Computer Failure"
     },
     {
-        question: "Which industry was most affected by the Y2K bug?",
-        options: ["Banking", "Agriculture", "Entertainment"],
-        answer: "Banking"
+        question: "What was the reason for the Y2K bug?",
+        options: ["Software Glitch", "Alien Invasion", "Global Conspiracy"],
+        answer: "Software Glitch"
     },
     {
-        question: "What was the nickname given to the Y2K bug?",
-        options: ["Millennium Bug", "Year 2000 Bug", "Tech Glitch"],
-        answer: "Millennium Bug"
+        question: "What was the potential impact of the Y2K bug?",
+        options: ["World Peace", "Mass Hysteria", "Total Chaos"],
+        answer: "Total Chaos"
     },
     {
-        question: "Which programming language was commonly affected by the Y2K bug?",
-        options: ["Python", "COBOL", "Java"],
-        answer: "COBOL"
+        question: "What were people advised to do to prepare for Y2K?",
+        options: ["Buy Candles", "Stock Up on Food", "Nothing"],
+        answer: "Stock Up on Food"
     },
     {
-        question: "How did people prepare for the Y2K bug?",
-        options: ["Stockpiling Supplies", "Building Bunkers", "Fixing Computer Code"],
-        answer: "Fixing Computer Code"
+        question: "Which continent was most affected by the Y2K bug?",
+        options: ["North America", "Asia", "Europe"],
+        answer: "North America"
     },
     {
-        question: "What major event took place in 2000 related to the Y2K bug?",
-        options: ["Olympic Games", "World Cup", "Presidential Election"],
-        answer: "Presidential Election"
+        question: "What was the outcome of the Y2K bug?",
+        options: ["Disaster", "No Impact", "Minor Glitches"],
+        answer: "No Impact"
+    },
+    {
+        question: "What did people fear would happen on January 1, 2000?",
+        options: ["Zombie Apocalypse", "Power Outage", "Computer Shutdown"],
+        answer: "Computer Shutdown"
+    },
+    {
+        question: "What lesson did the Y2K bug teach the world?",
+        options: ["Always Be Prepared", "Don't Trust Technology", "Stay Calm"],
+        answer: "Stay Calm"
     }
 ];
 
-const quizContainer = document.getElementById("quiz-container");
 const questionContainer = document.getElementById("question-container");
 const optionsContainer = document.getElementById("options-container");
 const resultContainer = document.getElementById("result-container");
@@ -52,28 +61,23 @@ const expertiseDescription = document.getElementById("expertise-description");
 let currentQuestion = 0;
 let score = 0;
 
-function shuffleOptions(options) {
-    return options.sort(() => Math.random() - 0.5);
-}
-
 function showQuestion() {
     const currentQuizData = quizData[currentQuestion];
     questionContainer.innerHTML = currentQuizData.question;
     optionsContainer.innerHTML = "";
 
-    const shuffledOptions = shuffleOptions(currentQuizData.options);
+    currentQuizData.options.sort(() => Math.random() - 0.5); // Shuffle the options
 
-    shuffledOptions.forEach((option, index) => {
+    currentQuizData.options.forEach((option) => {
         const button = document.createElement("button");
         button.innerHTML = option;
         button.classList.add("option-btn");
-        button.addEventListener("click", selectAnswer);
+        button.addEventListener("click", () => selectAnswer(option));
         optionsContainer.appendChild(button);
     });
 }
 
-function selectAnswer(e) {
-    const selectedOption = e.target.innerHTML;
+function selectAnswer(selectedOption) {
     const currentQuizData = quizData[currentQuestion];
 
     if (selectedOption === currentQuizData.answer) {
@@ -90,9 +94,10 @@ function selectAnswer(e) {
 }
 
 function showResult() {
-    quizContainer.style.display = "none";
+    questionContainer.style.display = "none";
+    optionsContainer.style.display = "none";
     resultContainer.style.display = "block";
-    scoreResult.textContent = score + " / " + quizData.length;
+    scoreResult.textContent = `${score} / ${quizData.length}`;
 
     let percentage = (score / quizData.length) * 100;
 

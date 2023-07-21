@@ -1,21 +1,13 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <button id="startBtn">Start Quiz</button>
+  <div class="quiz-container">
+    <h1 id="question"></h1>
+    <div id="options"></div>
   </div>
-  <script>
-    document.getElementById("startBtn").addEventListener("click", startQuiz);
-
-    function startQuiz() {
-      window.location.href = "question1.html";
-    }
-  </script>
+  <script src="quiz.js"></script>
 </body>
 </html>

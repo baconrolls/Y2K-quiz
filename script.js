@@ -52,12 +52,18 @@ const expertiseDescription = document.getElementById("expertise-description");
 let currentQuestion = 0;
 let score = 0;
 
+function shuffleOptions(options) {
+    return options.sort(() => Math.random() - 0.5);
+}
+
 function showQuestion() {
     const currentQuizData = quizData[currentQuestion];
     questionContainer.innerHTML = currentQuizData.question;
     optionsContainer.innerHTML = "";
 
-    currentQuizData.options.forEach((option, index) => {
+    const shuffledOptions = shuffleOptions(currentQuizData.options);
+
+    shuffledOptions.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerHTML = option;
         button.classList.add("option-btn");
@@ -98,7 +104,7 @@ function showResult() {
         expertiseDescription.textContent = "You have a good understanding of the Y2K bug, but there's still more to learn.";
     } else {
         expertise.textContent = "You're Y2K Curious!";
-        expertiseDescription.textContent = "You have some knowledge about the Y2K bug, but there's a lot more to explore.";
+        expertiseDescription.textContent = "You might not know much about the Y2K bug, but that's okay. It's a fascinating piece of history to explore!";
     }
 }
 

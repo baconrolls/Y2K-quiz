@@ -3,48 +3,108 @@ let score = 0;
 let currentQuestion = 0;
 
 const questions = [
-
-    {
-        question: "What was the main concern with the Y2K bug?",
-        options: ["Global economic collapse", "Nuclear war", "Computer system failures"],
-        answer: 2
-    },
-    {
-        question: "Which of these is NOT a Y2K remediation technique?",
-        options: ["Windowing", "Rewriting code", "Time travel"],
-        answer: 2
-    },
-    {
-        question: "Which major event took place during the Y2K bug transition?",
-        options: ["The release of the first iPhone", "The turn of the millennium", "The signing of the Kyoto Protocol"],
-        answer: 1
-    },
-    {
-        question: "What did 'Y2K compliant' mean?",
-        options: ["The computer system was ready for the year 2000", "The computer system had a virus", "The computer system was energy-efficient"],
-        answer: 0
-    },
-    {
-        question: "Which industry was NOT heavily impacted by the Y2K bug?",
-        options: ["Banking", "Agriculture", "Telecommunications"],
-        answer: 1
-    },
-    {
-        question: "How many digits were used to represent the year in some computer systems prior to Y2K?",
-        options: ["2", "3", "4"],
-        answer: 0
-    },
-    {
-        question: "Which country was the first to experience the Y2K bug?",
-        options: ["United States", "Australia", "New Zealand"],
-        answer: 2
-    },
-    {
-        question: "What is the full name of the Y2K bug?",
-        options: ["Year 2000 Bug", "Year 2000 Problem", "Year 2000 Virus"],
-        answer: 1
-    },
+  {
+    question: "What is the first step in a skincare routine?",
+    options: ["Cleansing", "Moisturizing", "Toning"],
+    answer: 0
+  },
+  {
+    question: "Which ingredient is known to help with acne?",
+    options: ["Vitamin C", "Hyaluronic Acid", "Salicylic Acid"],
+    answer: 2
+  },
+  {
+    question: "What type of mask is best for hydrating the skin?",
+    options: ["Sheet mask", "Clay mask", "Peel-off mask"],
+    answer: 0
+  },
+  {
+    question: "What does SPF stand for?",
+    options: ["Sun Protection Factor", "Skin Perfect Finish", "Super Powerful Formula"],
+    answer: 0
+  },
+  {
+    question: "Which product is used to remove dead skin cells?",
+    options: ["Serum", "Exfoliator", "Essence"],
+    answer: 1
+  },
+  {
+    question: "What does AHAs stand for in skincare?",
+    options: ["Antioxidant Hydrating Acids", "Alpha Hydroxy Acids", "Anti-Aging Herbal Agents"],
+    answer: 1
+  },
+  {
+    question: "What is the purpose of a toner in a skincare routine?",
+    options: ["To cleanse the skin", "To add moisture", "To balance the skin's pH"],
+    answer: 2
+  },
+  {
+    question: "Which vitamin is essential for collagen production?",
+    options: ["Vitamin E", "Vitamin A", "Vitamin C"],
+    answer: 2
+  },
+  {
+    question: "What is the final step in a skincare routine?",
+    options: ["Cleansing", "Exfoliating", "Moisturizing"],
+    answer: 2
+  },
+  {
+    question: "Which product can help with dark circles under the eyes?",
+    options: ["Eye cream", "Serum", "Toner"],
+    answer: 0
+  }
+      {
+    question: "What is the key ingredient in a hydrating mask?",
+    options: ["Retinol", "Hyaluronic Acid", "Vitamin C"],
+    answer: 1
+  },
+  {
+    question: "Which type of sunscreen is best for oily skin?",
+    options: ["Spray", "Gel", "Cream"],
+    answer: 1
+  },
+  {
+    question: "What is the main benefit of using a facial oil?",
+    options: ["Exfoliation", "Hydration", "Brightening"],
+    answer: 1
+  },
+  {
+    question: "Which skincare product helps to reduce fine lines and wrinkles?",
+    options: ["Cleanser", "Moisturizer", "Anti-aging cream"],
+    answer: 2
+  },
+  {
+    question: "What is the best time to apply a face mask?",
+    options: ["Morning", "Night", "Anytime"],
+    answer: 1
+  },
+  {
+    question: "Which ingredient is known for soothing irritated skin?",
+    options: ["Tea tree oil", "Aloe vera", "Rosehip oil"],
+    answer: 1
+  },
+  {
+    question: "What is the purpose of a facial toner?",
+    options: ["To remove makeup", "To hydrate the skin", "To balance pH levels"],
+    answer: 2
+  },
+  {
+    question: "Which skincare product can help fade dark spots?",
+    options: ["Sunscreen", "Serum", "Essence"],
+    answer: 1
+  },
+  {
+    question: "What does BHA stand for in skincare?",
+    options: ["Beta Hydroxy Acid", "Brightening Hydration Agent", "Balance Healing Agent"],
+    answer: 0
+  },
+  {
+    question: "Which ingredient is known for promoting collagen production?",
+    options: ["Peptides", "Witch hazel", "Glycolic Acid"],
+    answer: 0
+  }
 ];
+
 
 function showQuestion() {
     const questionContainer = document.createElement('div');
@@ -66,7 +126,7 @@ function showQuestion() {
 }
 
 function showResult() {
-    const result = score >= 8 ? "Congratulations! You're a Y2K expert!" : "Oops! You might need to brush up on your Y2K knowledge.";
+    const result = score >= 18 ? "Congratulations! You're a Y2K expert!" : "Oops! You might need to brush up on your Y2K knowledge.";
     const resultDisplay = `
         <div class="quiz-result">
             <h2>Your Score:</h2>

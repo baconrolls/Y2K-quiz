@@ -1,54 +1,5 @@
 const quizData = [
-    {
-        question: "What does Y2K stand for?",
-        options: ["Year 2000", "Yellow 2 Kangaroos", "You 2 Know"],
-        answer: "Year 2000"
-    },
-    {
-        question: "What year did the Y2K bug occur?",
-        options: ["2001", "2000", "1999"],
-        answer: "2000"
-    },
-    {
-        question: "What was the main concern of the Y2K bug?",
-        options: ["Global Warming", "Economic Recession", "Computer Failure"],
-        answer: "Computer Failure"
-    },
-    {
-        question: "What was the reason for the Y2K bug?",
-        options: ["Software Glitch", "Alien Invasion", "Global Conspiracy"],
-        answer: "Software Glitch"
-    },
-    {
-        question: "What was the potential impact of the Y2K bug?",
-        options: ["World Peace", "Mass Hysteria", "Total Chaos"],
-        answer: "Total Chaos"
-    },
-    {
-        question: "What were people advised to do to prepare for Y2K?",
-        options: ["Buy Candles", "Stock Up on Food", "Nothing"],
-        answer: "Stock Up on Food"
-    },
-    {
-        question: "Which continent was most affected by the Y2K bug?",
-        options: ["North America", "Asia", "Europe"],
-        answer: "North America"
-    },
-    {
-        question: "What was the outcome of the Y2K bug?",
-        options: ["Disaster", "No Impact", "Minor Glitches"],
-        answer: "No Impact"
-    },
-    {
-        question: "What did people fear would happen on January 1, 2000?",
-        options: ["Zombie Apocalypse", "Power Outage", "Computer Shutdown"],
-        answer: "Computer Shutdown"
-    },
-    {
-        question: "What lesson did the Y2K bug teach the world?",
-        options: ["Always Be Prepared", "Don't Trust Technology", "Stay Calm"],
-        answer: "Stay Calm"
-    }
+    // Add your questions and answers here
 ];
 
 const questionContainer = document.getElementById("question-container");
@@ -79,6 +30,11 @@ function showQuestion() {
 
 function selectAnswer(selectedOption) {
     const currentQuizData = quizData[currentQuestion];
+
+    const buttons = document.getElementsByClassName("option-btn");
+    for (const button of buttons) {
+        button.disabled = true;
+    }
 
     if (selectedOption === currentQuizData.answer) {
         score++;

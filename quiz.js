@@ -1,4 +1,5 @@
 const questions = [
+  // Add more questions here
   {
     question: "What is the first step of a skincare routine?",
     answers: [
@@ -30,6 +31,7 @@ let currentQuestion = 0;
 let score = 0;
 
 function startQuiz() {
+  document.getElementById("container").style.display = "none";
   document.getElementById("quiz-container").style.display = "block";
   document.getElementById("result-container").style.display = "none";
   displayQuestion();

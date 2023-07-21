@@ -102,3 +102,4 @@ function showResults() {
 
 buildQuiz();
 submitButton.addEventListener('click', showResults);
+

@@ -1,3 +1,5 @@
+document.getElementById("startBtn").addEventListener("click", startQuiz);
+
 const quizContainer = document.getElementById('quiz');
 let score = 0;
 let currentQuestion = 0;

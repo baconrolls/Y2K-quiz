@@ -1,9 +1,5 @@
 document.getElementById("startBtn").addEventListener("click", startQuiz);
 
-const quizContainer = document.getElementById('quiz');
-let score = 0;
-let currentQuestion = 0;
-
 const questions = [
   {
     question: "What is the first step in a skincare routine?",
@@ -108,52 +104,56 @@ const questions = [
 ];
 
 
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
+
+  showQuestion();
+}
+
 function showQuestion() {
-    const questionContainer = document.createElement('div');
-    questionContainer.classList.add('quiz-question');
-    questionContainer.innerHTML = `
-        <h2>${questions[currentQuestion].question}</h2>
-        <div class="quiz-options">
-            ${questions[currentQuestion].options.map((option, index) => `
-                <label>
-                    <input type="radio" name="question" value="${index}">
-                    ${option}
-                </label>
-            `).join('')}
-        </div>
-        <button onclick="checkAnswer()">Next</button>
-    `;
-    quizContainer.innerHTML = '';
-    quizContainer.appendChild(questionContainer);
+  if (currentQuestionIndex < questions.length) {
+    const question = questions[currentQuestionIndex];
+    const container = document.querySelector(".container");
+
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("question");
+    questionDiv.innerHTML = `<h3>${question.question}</h3>`;
+
+    question.options.forEach((option) => {
+      const optionDiv = document.createElement("div");
+      optionDiv.classList.add("option");
+      optionDiv.textContent = option;
+      optionDiv.addEventListener("click", () => checkAnswer(option, question.answer));
+      questionDiv.appendChild(optionDiv);
+    });
+
+    container.appendChild(questionDiv);
+  } else {
+    showResult();
+  }
+}
+
+function checkAnswer(selectedOption, correctAnswer) {
+  if (selectedOption === correctAnswer) {
+    score++;
+  }
+  currentQuestionIndex++;
+  showQuestion();
 }
 
 function showResult() {
-    const result = score >= 18 ? "Congratulations! You're a Y2K expert!" : "Oops! You might need to brush up on your Y2K knowledge.";
-    const resultDisplay = `
-        <div class="quiz-result">
-            <h2>Your Score:</h2>
-            <p>${score} out of ${questions.length}</p>
-            <p>${result}</p>
-        </div>
-    `;
-    quizContainer.innerHTML = '';
-    quizContainer.innerHTML = resultDisplay;
-}
+  const container = document.querySelector(".container");
+  container.innerHTML = "";
 
-function checkAnswer() {
-    const selectedOption = document.querySelector('input[name="question"]:checked');
-    if (selectedOption) {
-        const userAnswer = parseInt(selectedOption.value);
-        if (userAnswer === questions[currentQuestion].answer) {
-            score++;
-        }
-        currentQuestion++;
-        if (currentQuestion < questions.length) {
-            showQuestion();
-        } else {
-            showResult();
-        }
-    }
+  const resultDiv = document.createElement("div");
+  resultDiv.classList.add("result");
+  resultDiv.innerHTML = `<h2>Your Score: ${score} out of ${questions.length}</h2>`;
+
+  container.appendChild(resultDiv);
 }
 
 showQuestion();

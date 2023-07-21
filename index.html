@@ -1,13 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skincare Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="container">
     <img src="https://i.giphy.com/media/V0VhfRfv5Bg0fOSrJ1/giphy.webp" alt="Skincare GIF">
@@ -15,8 +13,12 @@
       find out how well you know your skincare routine. Are you ready? Let's get started!</p>
     <button id="startBtn">Start Quiz</button>
   </div>
+  <script>
+    document.getElementById("startBtn").addEventListener("click", startQuiz);
 
-  <script src="quiz.js"></script>
+    function startQuiz() {
+      window.location.href = "question1.html";
+    }
+  </script>
 </body>
-
 </html>

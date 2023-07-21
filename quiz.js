@@ -3,7 +3,7 @@ let score = 0;
 let currentQuestion = 0;
 
 const questions = [
-    // Previous questions...
+
     {
         question: "What was the main concern with the Y2K bug?",
         options: ["Global economic collapse", "Nuclear war", "Computer system failures"],

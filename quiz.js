@@ -1,78 +1,54 @@
-const questions = [
-  // Add more questions here
-  {
-    question: "What is the first step of a skincare routine?",
-    answers: [
-      { text: "Toner", correct: false },
-      { text: "Cleanser", correct: true },
-      { text: "Moisturizer", correct: false },
-    ],
-  },
-  {
-    question: "Which ingredient is known to help with acne?",
-    answers: [
-      { text: "Hyaluronic Acid", correct: false },
-      { text: "Niacinamide", correct: true },
-      { text: "Vitamin C", correct: false },
-    ],
-  },
-  {
-    question: "What does SPF stand for?",
-    answers: [
-      { text: "Sun Protection Factor", correct: true },
-      { text: "Skincare Product Formula", correct: false },
-      { text: "Serum Primer Foundation", correct: false },
-    ],
-  },
-  // Add more questions here
-];
+let scoreA = 0;
+let scoreB = 0;
+let scoreC = 0;
 
-let currentQuestion = 0;
-let score = 0;
-
-function startQuiz() {
-  document.getElementById("container").style.display = "none";
-  document.getElementById("quiz-container").style.display = "block";
-  document.getElementById("result-container").style.display = "none";
-  displayQuestion();
+function showQuestion(questionNumber) {
+  const currentQuiz = document.getElementById(`quiz${questionNumber}`);
+  const nextQuiz = document.getElementById(`quiz${questionNumber + 1}`);
+  currentQuiz.style.display = 'none';
+  nextQuiz.style.display = 'block';
 }
 
-function selectAnswer(answerIndex) {
-  if (questions[currentQuestion].answers[answerIndex].correct) {
-    score++;
+function showResult() {
+  const answersQ1 = document.getElementsByName('q1');
+  const answersQ2 = document.getElementsByName('q2');
+  const answersQ3 = document.getElementsByName('q3');
+
+  for (let i = 0; i < answersQ1.length; i++) {
+    if (answersQ1[i].checked) {
+      if (answersQ1[i].value === 'A') scoreA++;
+      if (answersQ1[i].value === 'B') scoreB++;
+      if (answersQ1[i].value === 'C') scoreC++;
+    }
   }
 
-  currentQuestion++;
+  for (let i = 0; i < answersQ2.length; i++) {
+    if (answersQ2[i].checked) {
+      if (answersQ2[i].value === 'A') scoreA++;
+      if (answersQ2[i].value === 'B') scoreB++;
+      if (answersQ2[i].value === 'C') scoreC++;
+    }
+  }
 
-  if (currentQuestion < questions.length) {
-    displayQuestion();
+  for (let i = 0; i < answersQ3.length; i++) {
+    if (answersQ3[i].checked) {
+      if (answersQ3[i].value === 'A') scoreA++;
+      if (answersQ3[i].value === 'B') scoreB++;
+      if (answersQ3[i].value === 'C') scoreC++;
+    }
+  }
+
+  let resultText = '';
+  if (scoreA >= scoreB && scoreA >= scoreC) {
+    resultText = 'You got Mostly A. You are a skincare expert!';
+  } else if (scoreB >= scoreA && scoreB >= scoreC) {
+    resultText = 'You got Mostly B. You are a skincare enthusiast!';
   } else {
-    displayResult();
+    resultText = 'You got Mostly C. You are a skincare beginner!';
   }
-}
 
-function displayQuestion() {
-  const questionText = document.getElementById("question");
-  const optionsContainer = document.getElementById("options");
+  document.getElementById('resultText').innerText = resultText;
 
-  questionText.innerText = questions[currentQuestion].question;
-  optionsContainer.innerHTML = "";
-
-  questions[currentQuestion].answers.forEach((answer, index) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("option-btn");
-    button.addEventListener("click", () => selectAnswer(index));
-    optionsContainer.appendChild(button);
-  });
-}
-
-function displayResult() {
-  const resultContainer = document.getElementById("result-container");
-  const scoreText = document.getElementById("score");
-
-  document.getElementById("quiz-container").style.display = "none";
-  resultContainer.style.display = "block";
-
-  scoreText.innerText = `${score} out of ${questions.length}`;
+  const result = document.getElementById('result');
+  result.style.display = 'block';
 }

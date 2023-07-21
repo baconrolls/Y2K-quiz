@@ -1,69 +1,83 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
 }
 
 .container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    color: #ff6600;
 }
 
-.question {
-    font-size: 18px;
-    font-weight: bold;
+h2 {
+    color: #ff6600;
     margin-bottom: 10px;
 }
 
-.options {
+.quiz-question {
+    margin-bottom: 20px;
+}
+
+.quiz-options {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.option {
+.quiz-option {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
-label {
-    display: inline-block;
+.quiz-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.quiz-option label {
     cursor: pointer;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-label:hover {
-    background-color: #f9f9f9;
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-#submit-btn {
+.quiz-submit-btn {
     display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    width: 100%;
+    padding: 10px;
     border: none;
+    background-color: #ff6600;
+    color: #fff;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#submit-btn:hover {
-    background-color: #0056b3;
+.quiz-submit-btn:hover {
+    background-color: #ff9900;
+}
+
+.quiz-result {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff6600;
+}
+
+.quiz-result img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

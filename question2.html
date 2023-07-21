@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare Quiz - Question 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h3>Question 2: What does SPF stand for?</h3>
+    <div class="options">
+      <div class="option" onclick="checkAnswer('Sun Protection Factor')">Sun Protection Factor</div>
+      <div class="option" onclick="checkAnswer('Skin Perfection Formula')">Skin Perfection Formula</div>
+      <div class="option" onclick="checkAnswer('Smooth and Plump Finish')">Smooth and Plump Finish</div>
+    </div>
+  </div>
+  <script>
+    function checkAnswer(selectedOption) {
+      if (selectedOption === 'Sun Protection Factor') {
+        let score = localStorage.getItem('score');
+        score = parseInt(score) + 1;
+        localStorage.setItem('score', score.toString());
+      }
+      window.location.href = "result.html";
+    }
+  </script>
+</body>
+</html>

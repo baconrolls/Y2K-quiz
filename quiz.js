@@ -2,9 +2,6 @@ const quizContainer = document.getElementById('quiz');
 let score = 0;
 let currentQuestion = 0;
 
-Sure! Here are some additional questions for the Y2K quiz:
-
-```js
 const questions = [
     // Previous questions...
     {
@@ -48,9 +45,6 @@ const questions = [
         answer: 1
     },
 ];
-```
-
-Feel free to add more questions to the array as needed. Don't forget to adjust the `currentQuestion` variable in the JavaScript code to match the number of questions you have.
 
 function showQuestion() {
     const questionContainer = document.createElement('div');

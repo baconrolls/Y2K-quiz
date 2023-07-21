@@ -2,19 +2,55 @@ const quizContainer = document.getElementById('quiz');
 let score = 0;
 let currentQuestion = 0;
 
+Sure! Here are some additional questions for the Y2K quiz:
+
+```js
 const questions = [
+    // Previous questions...
     {
-        question: "What does Y2K stand for?",
-        options: ["Year 2000", "Yesterday 2 Kill", "Yellow 2 Ketchup"],
+        question: "What was the main concern with the Y2K bug?",
+        options: ["Global economic collapse", "Nuclear war", "Computer system failures"],
+        answer: 2
+    },
+    {
+        question: "Which of these is NOT a Y2K remediation technique?",
+        options: ["Windowing", "Rewriting code", "Time travel"],
+        answer: 2
+    },
+    {
+        question: "Which major event took place during the Y2K bug transition?",
+        options: ["The release of the first iPhone", "The turn of the millennium", "The signing of the Kyoto Protocol"],
+        answer: 1
+    },
+    {
+        question: "What did 'Y2K compliant' mean?",
+        options: ["The computer system was ready for the year 2000", "The computer system had a virus", "The computer system was energy-efficient"],
         answer: 0
     },
     {
-        question: "In which year did the Y2K bug occur?",
-        options: ["2001", "2000", "1999"],
+        question: "Which industry was NOT heavily impacted by the Y2K bug?",
+        options: ["Banking", "Agriculture", "Telecommunications"],
         answer: 1
     },
-    // Add more questions here
+    {
+        question: "How many digits were used to represent the year in some computer systems prior to Y2K?",
+        options: ["2", "3", "4"],
+        answer: 0
+    },
+    {
+        question: "Which country was the first to experience the Y2K bug?",
+        options: ["United States", "Australia", "New Zealand"],
+        answer: 2
+    },
+    {
+        question: "What is the full name of the Y2K bug?",
+        options: ["Year 2000 Bug", "Year 2000 Problem", "Year 2000 Virus"],
+        answer: 1
+    },
 ];
+```
+
+Feel free to add more questions to the array as needed. Don't forget to adjust the `currentQuestion` variable in the JavaScript code to match the number of questions you have.
 
 function showQuestion() {
     const questionContainer = document.createElement('div');

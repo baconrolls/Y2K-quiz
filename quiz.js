@@ -16,19 +16,11 @@ const questions = [
     ],
   },
   {
-    question: "What is the best sunscreen for sensitive skin?",
+    question: "What does SPF stand for?",
     answers: [
-      { text: "SPF 50", correct: false },
-      { text: "SPF 30", correct: true },
-      { text: "SPF 15", correct: false },
-    ],
-  },
-  {
-    question: "Which skincare product helps to reduce fine lines and wrinkles?",
-    answers: [
-      { text: "Cleanser", correct: false },
-      { text: "Exfoliator", correct: false },
-      { text: "Retinol", correct: true },
+      { text: "Sun Protection Factor", correct: true },
+      { text: "Skincare Product Formula", correct: false },
+      { text: "Serum Primer Foundation", correct: false },
     ],
   },
   // Add more questions here
@@ -36,6 +28,12 @@ const questions = [
 
 let currentQuestion = 0;
 let score = 0;
+
+function startQuiz() {
+  document.getElementById("quiz-container").style.display = "block";
+  document.getElementById("result-container").style.display = "none";
+  displayQuestion();
+}
 
 function selectAnswer(answerIndex) {
   if (questions[currentQuestion].answers[answerIndex].correct) {
@@ -52,29 +50,27 @@ function selectAnswer(answerIndex) {
 }
 
 function displayQuestion() {
-  const questionContainer = document.getElementById("question-container");
-  questionContainer.innerHTML = `
-    <h1>${questions[currentQuestion].question}</h1>
-    <div class="options">
-      ${questions[currentQuestion].answers
-        .map(
-          (answer, index) => `
-            <button onclick="selectAnswer(${index})">${answer.text}</button>
-          `
-        )
-        .join("")}
-    </div>
-  `;
+  const questionText = document.getElementById("question");
+  const optionsContainer = document.getElementById("options");
+
+  questionText.innerText = questions[currentQuestion].question;
+  optionsContainer.innerHTML = "";
+
+  questions[currentQuestion].answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add("option-btn");
+    button.addEventListener("click", () => selectAnswer(index));
+    optionsContainer.appendChild(button);
+  });
 }
 
 function displayResult() {
   const resultContainer = document.getElementById("result-container");
-  resultContainer.style.display = "block";
-  resultContainer.innerHTML = `
-    <h1>Your Score</h1>
-    <p id="score">${score} out of ${questions.length}</p>
-  `;
+  const scoreText = document.getElementById("score");
 
-  const questionContainer = document.getElementById("question-container");
-  questionContainer.style.display = "none";
+  document.getElementById("quiz-container").style.display = "none";
+  resultContainer.style.display = "block";
+
+  scoreText.innerText = `${score} out of ${questions.length}`;
 }

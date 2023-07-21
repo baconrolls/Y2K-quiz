@@ -22,13 +22,14 @@ function showQuestion() {
     questionContainer.innerHTML = `
         <h2>${questions[currentQuestion].question}</h2>
         <div class="quiz-options">
-            ${questions[currentQuestion].options.map((option) => `
+            ${questions[currentQuestion].options.map((option, index) => `
                 <label>
-                    <input type="radio" name="question${currentQuestion}" value="${option}">
+                    <input type="radio" name="question" value="${index}">
                     ${option}
                 </label>
             `).join('')}
         </div>
+        <button onclick="checkAnswer()">Next</button>
     `;
     quizContainer.innerHTML = '';
     quizContainer.appendChild(questionContainer);
@@ -48,9 +49,9 @@ function showResult() {
 }
 
 function checkAnswer() {
-    const selectedOption = document.querySelector(`input[name="question${currentQuestion}"]:checked`);
+    const selectedOption = document.querySelector('input[name="question"]:checked');
     if (selectedOption) {
-        const userAnswer = selectedOption.value;
+        const userAnswer = parseInt(selectedOption.value);
         if (userAnswer === questions[currentQuestion].answer) {
             score++;
         }
@@ -64,4 +65,3 @@ function checkAnswer() {
 }
 
 showQuestion();
-quizContainer.addEventListener('click', checkAnswer);
